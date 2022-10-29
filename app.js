@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require("morgan");
 
 const app = express();
 
@@ -7,6 +8,10 @@ app.listen(3000, () => {
 });
 
 app.set("view engine", "ejs");
+
+// middleware and static files
+app.use(morgan("dev"));
+app.use(express.static("public"));
 
 // routing
 
